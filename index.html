@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Herobrine.org Fan Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #8E24AA, #673AB7);
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            
+        }
+
+        h1 {
+            text-align: center;
+            color: crimson;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: rgba(5, 5, 5, 0.8);
+            border-radius: 20px;
+        }
+
+        h2 {
+            color: #ff7f50;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: #ff6347;
+            margin-bottom: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input, select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: crimson;
+            color: white;
+            cursor: pointer;
+        }
+
+        input::placeholder, select::placeholder {
+            color: #999;
+        }
+
+        .news {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .news ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .news li {
+            margin-bottom: 5px;
+            color: rgb(0, 0, 0);
+        }
+
+        .giveaway {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .giveaway p {
+            margin-bottom: 15px;
+            color: rgb(0, 0, 0);
+        }
+
+        .giveawayForm {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .giveawayForm label {
+            margin-bottom: 5px;
+            color: rgb(3, 3, 3);
+        }
+
+        .giveawayForm input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .giveawayForm input[type="email"] {
+            width: 100%;
+        }
+
+        .giveawayForm input[type="submit"] {
+            background-color: crimson;
+            color: rgb(247, 239, 239);
+            cursor: pointer;
+        }
+
+        .giveawayForm p {
+            margin-top: 10px;
+            color: green;
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer li {
+            margin-bottom: 5px;
+        }
+
+        .user-info {
+            text-align: right;
+            font-size: 14px;
+            margin-top: 10px;
+            color: #333; /* Text color for user info */
+        }
+
+        .user-info a {
+            color: crimson;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .GameMode {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .GameMode ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .GameMode li {
+            margin-bottom: 5px;
+        }
+
+        .GameMode button {
+            background-color: #000000;
+            border: none;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 5px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .GameMode button:hover {
+            background-color: #ff6347;
+        }
+
+        summary {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Error Message Container */
+        #errorMessage {
+            color: crimson;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Herobrine.org Fan Page</h1>
+
+        <!-- Sign Up Form -->
+        <form id="signupForm">
+            <label for="ing">Enter your In-game name:</label>
+            <input type="text" name="ing" id="ing" required placeholder="Your in-game name">
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- User Info (Hidden by Default) -->
+        <div class="user-info" id="userInfo" style="display: none;"></div>
+
+        <!-- News Section -->
+        <div class="news" id="newsSection" style="display: none;">
+            <h2>News Updates</h2>
+            <ul>
+                <li>New game mode "minepillage" launched!</li>
+                <li>hurish broke aayan's heart.</li>
+                <li>1M giveaway in demeter at the end of this week. don't miss it out.</li>
+                <li></li>
+            </ul>
+        </div>
+
+        <!-- Giveaway Section -->
+        <div class="giveaway" id="giveawaySection" style="display: none;">
+            <h2><s>Giveaway</s> <u> closed for now </u></h2>
+            <p>Participate in our giveaway for a chance to win server Gold</p>
+            <!-- Giveaway form -->
+            <form class="giveawayForm">
+                <label for="email">Enter your email to enter the giveaway:</label>
+                <input type="email" id="email" name="email" required placeholder="example@gmail.com">
+                <input type="submit" value="Enter Giveaway">
+            </form>
+            <p class="giveawayMessage"></p>
+        </div>
+
+        <!-- Game Modes Section -->
+        <div class="GameMode" id="gamemodesection" style="display: none;">
+            <h2>Game Modes</h2>
+
+            <!-- Summary: Survival -->
+            <div class="summary">
+                <h3>Survival</h3>
+                <p>Experience the classic survival gameplay on herobrine.org. Explore the Demeter, Apollo, Polis, and Hermes game modes, each with its unique challenges and rewards.</p>
+            </div>
+
+            <ul>
+                <button onclick="window.location.href='giveaway_demeter.html'"><li>Demeter</li></button>
+                <button onclick="showError('Apollo')"><li>Apollo</li></button>
+                <button onclick="showError('Polis')"><li>Polis</li></button>
+                <button onclick="showError('Hermes')"><li>Hermes</li></button>
+            </ul>
+
+            <!-- Summary: Skyblock -->
+            <div class="summary">
+                <h3>Skyblock</h3>
+                <p>Coming Soon</p>
+            </div>
+
+            <ul>
+                <button onclick="showError('Hera')"><li>Hera</li></button>
+            </ul>
+
+            <!-- Summary: Faction -->
+            <div class="summary">
+                <h3>Faction</h3>
+                <p>Coming Soon!</p>
+            </div>
+
+            <ul>
+                <button onclick="showError('Hades')"><li>Hades</li></button>
+                <button onclick="showError('Area')"><li>Area</li></button>
+            </ul>
+
+            <!-- Summary: Oneblock -->
+            <div class="summary">
+                <h3>Oneblock</h3>
+                <p>Coming Soon!</p>
+            </div>
+
+            <ul>
+                <button onclick="showError('Coming Soon')"><li>Coming Soon</li></button>
+            </ul>
+
+            <!-- Error Message Container -->
+            <div id="errorMessage" style="display: none;"></div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer" id="footerSection" style="display: none;">
+            <h3>Useful Links:</h3>
+            <ul>
+                <li><a href="https://www.herobrine.org/" target="_blank">Herobrine.org</a></li>
+                <li><a href="https://www.herobrine.org/vote/" target="_blank">Vote Site</a></li>
+                <li><a href="https://shop.herobrine.org/" target="_blank">Shop Site</a></li>
+                <li><a href="https://www.herobrine.org/rules/" target="_blank">Rules</a></li>
+                <li><a href="https://discord.gg/herobrine" target="_blank">Discord Server</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const ing = document.getElementById("ing").value;
+            // You can add additional validation here if needed
+
+            // Show the content sections
+            document.getElementById("newsSection").style.display = "block";
+            document.getElementById("giveawaySection").style.display = "block";
+            document.getElementById("gamemodesection").style.display = "block";
+            document.getElementById("footerSection").style.display = "block";
+
+            // Show user info
+            const userInfo = document.getElementById("userInfo");
+            userInfo.innerHTML = `Logged in as ${ing} | <a href="#" onclick="logout()">Logout</a>`;
+            userInfo.style.display = "block";
+        });
+
+        function logout() {
+            // Hide the user info and content sections
+            document.getElementById("newsSection").style.display = "none";
+            document.getElementById("giveawaySection").style.display = "none";
+            document.getElementById("gamemodesection").style.display = "none";
+            document.getElementById("footerSection").style.display = "none";
+            document.getElementById("userInfo").style.display = "none";
+        }
+        function showError(gameMode) {
+            const errorMessage = document.getElementById("errorMessage");
+            errorMessage.innerHTML = `Error: ${gameMode} is coming soon!`;
+            errorMessage.style.display = "block";
+            setTimeout(() => {
+                errorMessage.style.display = "none";
+            }, 3000); // Hide the error message after 3 seconds (3000 milliseconds)
+        }
+    </script>
+</body>
+</html>
